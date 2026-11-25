@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: sentinela
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    username: ${RABBITMQ_USER:sentinela}
+    password: ${RABBITMQ_PASSWORD:local-dev-only}
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
